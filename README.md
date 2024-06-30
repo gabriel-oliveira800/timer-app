@@ -1,16 +1,38 @@
-# timer_app
+# Timer App
 
-A new Flutter project.
+O **Timer App** é uma aplicação simples e intuitiva que permite criar tarefas e selecionar o tempo que você deseja dedicar a elas. É perfeito para melhorar a produtividade e gerenciar o tempo de maneira eficaz.
 
-## Getting Started
+## Funcionalidades
 
-This project is a starting point for a Flutter application.
+- **Criação de Tarefas**: Adicione novas tarefas facilmente com um nome descritivo.
+- **Seleção de Tempo**: Defina quanto tempo deseja dedicar a cada tarefa, com opções de personalização.
+- **Funcionalidades Futuras**
+  - **Gerenciamento de Tarefas**: Veja uma lista de todas as suas tarefas, com tempos definidos, e gerencie-as conforme necessário.
+  - **Notificações**: Receba notificações quando o tempo da tarefa estiver prestes a terminar.
 
-A few resources to get you started if this is your first Flutter project:
+## Como Usar
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. **Adicionar Nova Tarefa**:
+   ```plaintext
+   - Clique no botão "+".
+   - Insira o nome da tarefa.
+   - Selecione o tempo desejado para dedicar a essa tarefa.
+   - Clique em "Iniciar".
+   ```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Exemplo
+
+```plaintext
+- Tarefa: Estudar Matemática
+- Tempo: 1 hora
+
+Adicione a tarefa "Estudar Matemática" com um tempo de 1 hora, e o Timer App irá notificá-lo quando o tempo acabar,
+ajudando você a manter o foco e a produtividade.
+```
+
+## Tecnologias Utilizadas
+
+- **Flutter** e **Dart**
+- **SharedPreferences**
+
+UI expiration https://dribbble.com/shots/17553953-Timer-App
