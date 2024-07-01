@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 
-import '../models/tasks.dart';
-import 'create_tasks_button.dart';
 import 'create_tasks_modal_content.dart';
+
+import '../models/tasks.dart';
+import 'rounded_button.dart';
 import 'spacing.dart';
 
 class GridTasks extends StatelessWidget {
   final List<Tasks> tasks;
   final Tasks? selectedTask;
+
+  final ValueChanged<Tasks> onDelete;
   final ValueChanged<String> onCreatedTask;
   final ValueChanged<Tasks> onSelectedTask;
 
   const GridTasks({
     super.key,
     this.selectedTask,
+    required this.onDelete,
     required this.onCreatedTask,
     required this.onSelectedTask,
     this.tasks = const <Tasks>[],
@@ -33,14 +37,14 @@ class GridTasks extends StatelessWidget {
     if (tasks.isEmpty) {
       return Align(
         alignment: Alignment.center,
-        child: CreateTasksButton(onPressed: () => _onCreatedTask(context)),
+        child: RoundedButton(onPressed: () => _onCreatedTask(context)),
       );
     }
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        CreateTasksButton(onPressed: () => _onCreatedTask(context)),
+        RoundedButton(onPressed: () => _onCreatedTask(context)),
         const Spacing.horizontal(8),
         Flexible(
           child: Container(
@@ -50,12 +54,13 @@ class GridTasks extends StatelessWidget {
               shrinkWrap: true,
               itemCount: tasks.length,
               scrollDirection: Axis.horizontal,
-              separatorBuilder: (_, index) => const Spacing.horizontal(8),
-              itemBuilder: (_, index) => CreateTasksButton(
-                data: tasks[index].title,
+              itemBuilder: (_, index) => RoundedButton(
+                text: tasks[index].title,
                 selected: tasks[index] == selectedTask,
+                onLongPress: () => onDelete(tasks[index]),
                 onPressed: () => onSelectedTask(tasks[index]),
               ),
+              separatorBuilder: (_, index) => const Spacing.horizontal(8),
             ),
           ),
         ),

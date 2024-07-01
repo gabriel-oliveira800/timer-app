@@ -60,6 +60,7 @@ class _HomeState extends State<Home> {
           const Spacing.vertical(48),
           GridTasks(
             tasks: _controller.tasks,
+            onDelete: _controller.onDeletedTask,
             selectedTask: _controller.selectedTask,
             onCreatedTask: _controller.onAddNewTask,
             onSelectedTask: _controller.onSelectedTask,

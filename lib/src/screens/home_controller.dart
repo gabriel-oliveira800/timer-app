@@ -20,15 +20,18 @@ class HomeController with ChangeNotifier {
     toggleLoading();
 
     final currentSate = await service.getTaskTimeState();
-    if (currentSate != null) return onListen(currentSate);
+    if (currentSate != null) {
+      toggleLoading();
+      return onListen(currentSate);
+    }
 
     final result = await service.getAllTasks();
-    if (result.isEmpty) return;
+    if (result.isEmpty) return toggleLoading();
 
     tasks.addAll(result);
     selectedTask = tasks.first;
-    notifyListeners();
 
+    notifyListeners();
     toggleLoading();
   }
 
@@ -63,5 +66,11 @@ class HomeController with ChangeNotifier {
 
     toggleLoading();
     return data;
+  }
+
+  void onDeletedTask(Tasks task) async {
+    tasks.remove(task);
+    notifyListeners();
+    await service.deleteTask(task);
   }
 }

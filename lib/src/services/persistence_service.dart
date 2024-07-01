@@ -44,4 +44,20 @@ class PersistenceService {
     final pref = await SharedPreferences.getInstance();
     await pref.setString('task_timer_state', json.encode(data.toMap()));
   }
+
+  Future<void> clearTaskTimeState() async {
+    final pref = await SharedPreferences.getInstance();
+    await pref.remove('task_timer_state');
+  }
+
+  Future<void> deleteTask(Tasks task) async {
+    final pref = await SharedPreferences.getInstance();
+    final currentTasks = await getAllTasks();
+
+    final newTasks = currentTasks.where((it) => it.id != task.id).toList();
+    await pref.setStringList(
+      'tasks',
+      newTasks.map((it) => encodeTasks(it.toMap())).toList(),
+    );
+  }
 }
