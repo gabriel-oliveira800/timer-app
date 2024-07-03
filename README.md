@@ -35,4 +35,13 @@ ajudando você a manter o foco e a produtividade.
 - **Flutter** e **Dart**
 - **SharedPreferences**
 
-UI expiration https://dribbble.com/shots/17553953-Timer-App
+UI expiration [Timer-App](https://dribbble.com/shots/17553953-Timer-App)
+
+## Demo
+
+<ul style="display: flex; flex-direction:row; gap: 12px; padding: 0;">
+  <img style="width: 20%;"  src="assets/images/01.png">
+  <img style="width: 20%;"  src="assets/images/02.png">
+  <img style="width: 20%;"  src="assets/images/03.png">
+  <img style="width: 20%;"  src="assets/images/04.png">
+</ul>
